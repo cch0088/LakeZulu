@@ -9,7 +9,7 @@ Calendar to check availability
 Open Hours- 6AM-10AM and 1PM-7PM
 FrontEnd will include the amount of people, that will display the correct boat for that size
 Reservation system that allows the customer to choose the amount of people, the time frame, consent form.
-Include reviews to the website
+Include boat reviews to the website
 
 
 
