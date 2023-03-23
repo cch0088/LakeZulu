@@ -1,7 +1,7 @@
 # LakeZulu
 Lake Zulu Boat Rentals (Phase 4 Project)
 
-6 types of boats- speed baat, catamaran, fishing boat, dingy, swan peedle boat, kayak, jet ski
+6 types of boats- speed boat, catamaran, fishing boat, dingy, swan peedle boat, kayak, jet ski
 time frame changes based on prices
 packages deals to includes drinks, snacks, music, life jackets are including in the rental.
 rental rates based on size, time frame, and amount of people
