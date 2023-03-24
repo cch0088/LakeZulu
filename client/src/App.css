@@ -1,0 +1,367 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  text-align: center;
+  background-image: url("./backgroundPic.png");
+  background-size: cover;
+  height: 100vh;
+} 
+
+
+#horz-list{
+  display: flex;
+  justify-content: center;
+  margin-top: 180px;
+  padding: 0;
+  text-align: center;
+}
+
+#horz-list ul li {
+  padding: 50px;
+  color: yellowgreen;
+  font-weight: bold;
+  list-style-type: none;
+  font-size: 20px;
+  background-color:rgba(214, 249, 249, 0.1);
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  background-color: black;
+}
+
+.order-form {
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+
+  padding: 16px;
+
+  background-color: white;
+  position: absolute;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.form-field-container {
+  text-align: left;
+  padding: 4px;
+}
+
+.form-field {
+  width: 100%;
+  padding: 4px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.pizza-list {
+  width: 90%;
+}
+
+.pizza-menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+
+}
+
+.pizza-menu-image-container {
+  text-align: right;
+}
+
+.pizza-menu-image {
+  width: 70%;
+  cursor: pointer;
+}
+
+.pizza-menu-description {
+  width: 90%;
+  margin-left: 30px;
+}
+
+.pizza-menu-name {
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 80%;
+
+  padding-left: 20px;
+  text-align: left;
+  font-weight: bold;
+  font-size: calc(10px + 2vmin);
+}
+
+.pizza-menu-topping-list {
+  text-align: left;
+  font-size: calc(8px + 1vmin);
+
+  width: 80%;
+}
+
+.content {
+  min-height: 450px;
+  background-color:rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.lower-content {
+  background-color:rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spacer {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  height: 90px;
+  color: yellowgreen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  font-weight: bold;
+}
+
+.filler {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.navigation {
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-color:white;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.bottom {
+  height: 70px;
+  width: 100%;
+}
+
+.footer {
+  height: 40px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.picture {
+  height: 400px;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.pizza-topping-toggle {
+  background: none;
+  border: none;
+  padding: 4px;
+  margin-right: 4px;
+}
+
+.pizza-display {
+  height: 25%;
+  margin-right: 10%;
+  position: absolute;
+}
+
+.pizza-select {
+  cursor: pointer;
+  width: 400px;
+  height: 300px;
+}
+
+.options {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.options-menu {
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.menuNav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+} 
+
+.add-pizza-form {
+  margin: 1rem 0;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#pizza-type-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.boldText {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.select-toppings-heading {
+  font-weight: bold;
+  font-size: calc(8px + 1vmin);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.order-content {
+  min-height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.order-title {
+  display: inline;
+  padding: 30px;
+  color: white;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-style {
+  display: inline-block;
+  width: 30px;
+  padding: 12px;
+  margin: 0 6px 6px;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  background: white;
+}
+
+.div-box {
+  border: 2px solid rgb(0, 0, 0);
+  background-color: rgb(214, 249, 249);
+  padding: 10px;
+  width: 280px;
+  margin: 4px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  text-align: center;
+}
+
+.center-left {
+  padding: 10px;
+  text-align: left;
+  width: 60%;
+}
+
+.order-info {
+  font-weight: bold;
+  font-size: larger;
+}
+.homie {
+  color:yellow;
+  font-size: 200px;
+  animation: welcome 2s linear infinite;
+
+}
+
+@keyframes welcome {
+  50% {
+    color: cyan;
+  }
+}
