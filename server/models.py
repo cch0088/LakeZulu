@@ -2,21 +2,35 @@ from flask_sqlalchemy import  SQLAlchemy
 
 db = SQLAlchemy()
 
+class User(db.Model):
+   __tablename__ = 'users'
+
+   id = db.Column(db.Integer, primary_key = True)
+   name = db.Column(db.String, nullable = False)
+   password = db.Column(db.String, nullable = False)
+
+   def to_dict(self):
+      return {
+         "id": self.id,
+         "name": self.name,
+         "password": self.password
+      }
+
 # BOAT table
-class Boats(db.Model):
-   __tablename__ = 'boat'
+class Boat(db.Model):
+   __tablename__ = 'boats'
    
    id = db.Column(db.Integer, primary_key = True)
    name = db.Column(db.String, nullable = False)
    capacity = db.Column(db.Integer, nullable = False)
 
-   boat_times = db.relationship('BoatTimes', backref = 'boat')
+   boat_times = db.relationship('BoatTime', backref = 'boat')
 
    def to_dict(self):
       return {
-          "id": self.id,
-          "name": self.name,
-          "capacity": self.capacity
+         "id": self.id,
+         "name": self.name,
+         "capacity": self.capacity
       }
 
    def to_dict_with_times(self):
@@ -29,14 +43,14 @@ class Boats(db.Model):
       }
       
 # Times table
-class Times(db.Model):
-   __tablename__ = 'time'
+class Time(db.Model):
+   __tablename__ = 'times'
    
    id = db.Column(db.Integer, primary_key = True)
    hour = db.Column(db.String, nullable = False)
    day = db.Column(db.String, nullable = False)
 
-   boat_times = db.relationship('BoatTimes', backref = 'time')
+   boat_times = db.relationship('BoatTime', backref = 'time')
 
    def to_dict(self):
     return {
@@ -55,13 +69,13 @@ class Times(db.Model):
     }
 
 # BoatTimes table
-class BoatTimes(db.Model):
+class BoatTime(db.Model):
    __tablename__ = 'boat_times'
    
    id = db.Column(db.Integer, primary_key = True)
 
-   boat_id = db.Column(db.Integer, db.ForeignKey('boat.id'), nullable  = False)
-   time_id = db.Column(db.Integer, db.ForeignKey('time.id'), nullable  = False)
+   boat_id = db.Column(db.Integer, db.ForeignKey('boats.id'), nullable  = False)
+   time_id = db.Column(db.Integer, db.ForeignKey('times.id'), nullable  = False)
 
    def to_dict(self):
        return {

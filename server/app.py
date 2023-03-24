@@ -1,6 +1,6 @@
 from flask import Flask, make_response, jsonify, request
 from flask_migrate import Migrate
-from models import db, Boats, Times, BoatTimes
+from models import db, Boat, Time, BoatTime
 
 app = Flask(__name__)
 
@@ -22,13 +22,13 @@ def default_route():
 def boats():
     # GET for all BOATS
     if request.method == 'GET':
-        boats = Boats.query.all()
+        boats = Boat.query.all()
         boats_dict = [boat.to_dict_with_times() for boat in boats]
         return make_response(jsonify(boats_dict), 200)
         # POST for all BOATS
     elif request.method == 'POST':
         body = request.get_json()
-        new_boat = Boats()
+        new_boat = Boat()
         for key, value in body.items():
             setattr(new_boat, key, value)
         db.session.add(new_boat)
@@ -39,7 +39,7 @@ def boats():
 # route for BOAT by ID
 @app.route('/boats/<id>', methods = ['GET', 'DELETE', 'PATCH'])  
 def boat_by_id(id):
-    boat_exists = Boats.query.get(id)
+    boat_exists = Boat.query.get(id)
     # validates if boat exists  
     if not boat_exists:
         return jsonify({"error": "boat not found"}), 404
@@ -65,12 +65,12 @@ def boat_by_id(id):
 @app.route("/times", methods = ['GET', 'POST']) 
 def times():
     if request.method == 'GET':
-        times = Times.query.all()
+        times = Time.query.all()
         times_dict = [time.to_dict_with_boats() for time in times]
         return make_response(jsonify(times_dict), 200)
     elif request.method == 'POST':
         body = request.get_json()
-        new_time = Times()
+        new_time = Time()
         for key, value in body.items():
             setattr(new_time, key, value)
         db.session.add(new_time)
@@ -80,7 +80,7 @@ def times():
 # route for TIMES by ID
 @app.route("/times/<id>", methods = ['GET', 'DELETE', 'PATCH'])
 def times_by_id(id):
-    time_exists = Times.query.get(id)    
+    time_exists = Time.query.get(id)    
      # validates if time exists  
     if not time_exists:
         return jsonify({"error": "time not found"}), 404
@@ -103,26 +103,26 @@ def times_by_id(id):
             return jsonify(time_exists.to_dict_with_boats()), 200
 
 
-# route for all BoatTimes
-@app.route("/boatTimes", methods = ['GET', 'POST'])
-def boatTimes():
+# route for all BoatTime
+@app.route("/boatTime", methods = ['GET', 'POST'])
+def boatTime():
     if request.method == 'GET':
-        boat_times = BoatTimes.query.all()
+        boat_times = BoatTime.query.all()
         boat_times_dict = [bt.to_dict() for bt in boat_times]
         return make_response(jsonify(boat_times_dict), 200) 
     elif request.method == 'POST':
         body = request.get_json()
-        new_boat_time = BoatTimes()
+        new_boat_time = BoatTime()
         for key, value in body.items():
             setattr(new_boat_time, key, value)
         db.session.add(new_boat_time)
         db.session.commit()
         return make_response(jsonify(new_boat_time.to_dict()), 201) 
     
-# route for BoatTimes by ID
-@app.route('/boatTimes/<id>', methods = ['GET', 'DELETE', 'PATCH'])  
+# route for BoatTime by ID
+@app.route('/boatTime/<id>', methods = ['GET', 'DELETE', 'PATCH'])  
 def boat_time_by_id(id):
-    boat_time_exists = BoatTimes.query.get(id)
+    boat_time_exists = BoatTime.query.get(id)
     # validates if boatTime exists  
     if not boat_time_exists:
         return jsonify({"error": "boat-time not found"}), 404
