@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Route, Switch } from "react-router-dom";
 
 import NavBar from './components/NavBar';
+import Login from './components/Login';
+import Register from './components/Register';
 import Heading from './components/Heading';
 import About from './components/About';
 
@@ -19,25 +21,19 @@ function App() {
 
   return (
       <Switch>
-        <div className="App">
+        <div>
           <Heading />
           <NavBar />
-          <div className="spacer"></div>
+          <div className="spacer">
+          </div>
           <Route path="/about">
             <About />
           </Route>
           <Route path="/login">
-            {/* <PizzaBuilder 
-              pizzas={filteredList}
-              allToppings={allToppings}
-              setOrders={setOrders}
-              filters={filters}
-              setFilters={setFilters}
-              setToppings={setToppings}
-              setType={setType}
-              setImage={setImage}
-              type={type}
-              toppings={toppings} /> */}
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
           </Route>
         </div>
       </Switch>
