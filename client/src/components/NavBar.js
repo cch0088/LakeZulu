@@ -2,21 +2,6 @@
 import { BrowserRouter, Route, NavLink, Switch } from "react-router-dom";
 import React from "react";
 
-
-// #horz-list ul {
-//     margin: 50;
-//     padding: 0;
-//     list-style-type: none;
-//     text-align: center;
-//   }
-  
-//   #horz-list ul li {
-//     display: inline;
-//     padding: 30px;
-//     color: white;
-//     font-weight: bold;
-//   }
-
 const linkStyles = {
   display: "inline-block",
   width: "50px",
