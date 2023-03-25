@@ -1,29 +1,32 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Route, NavLink, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import NavBar from './components/NavBar';
+import Heading from './components/Heading';
+import About from './components/About';
 
 import './App.css';
 
 function App() {
-  const API = "http://localhost:3000/pizzas";
-  const [pizzas, setPizzas] = useState([]);
+  // const API = "http://localhost:3000/pizzas";
+  // const [pizzas, setPizzas] = useState([]);
 
-  useEffect(() => {
-    fetch(API)
-    .then(r => r.json())
-    .then(p => setPizzas(p));
-  },[])
+  // useEffect(() => {
+  //   fetch(API)
+  //   .then(r => r.json())
+  //   .then(p => setPizzas(p));
+  // },[])
 
   return (
       <Switch>
         <div className="App">
-          <div className="spacer"></div>
+          <Heading />
           <NavBar />
           <div className="spacer"></div>
           <Route path="/about">
+            <About />
           </Route>
-          <Route path="/options">
+          <Route path="/login">
             {/* <PizzaBuilder 
               pizzas={filteredList}
               allToppings={allToppings}
@@ -35,12 +38,6 @@ function App() {
               setImage={setImage}
               type={type}
               toppings={toppings} /> */}
-          </Route>
-          <Route path ="/orders">
-          </Route>
-          <Route path="/menu">
-          </Route>
-          <Route path="/home">
           </Route>
         </div>
       </Switch>

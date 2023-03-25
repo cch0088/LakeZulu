@@ -1,6 +1,6 @@
 from flask import Flask, make_response, jsonify, request
 from flask_migrate import Migrate
-from models import db, Boat, Time, BoatTime
+from models import db, Boat, Time, BoatTime, User
 
 app = Flask(__name__)
 
@@ -10,12 +10,15 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 
-
-
 # default route
 @app.route("/")
 def default_route():
     return {"status": "default route"}, 200
+
+# website registration
+@app.route("/login")
+def login():
+    pass
 
 # route for all boats
 @app.route("/boats", methods = ['GET', 'POST'])
