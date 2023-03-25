@@ -1,8 +1,12 @@
 from flask import Flask, make_response, jsonify, request
+from flask_cors import CORS
+from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
 from models import db, Boat, Time, BoatTime, User
 
 app = Flask(__name__)
+cors = CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
+bcrypt = Bcrypt(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///boatrentals.db'
 
@@ -10,15 +14,28 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 
+def password_hash(password):
+    return bcrypt.generate_password_hash(password.encode('utf-8'))
+
 # default route
 @app.route("/")
 def default_route():
     return {"status": "default route"}, 200
 
-# website registration
-@app.route("/login")
-def login():
-    pass
+# website registration with validation against duplicate users
+@app.route("/registration", methods = ['POST'])
+def registration():
+    data = request.get_json()
+    un = data.get('username')
+    pw = data.get('password')
+
+    if User.query.filter(User.username == un).first():
+        return make_response(jsonify(dict({"error":"duplicate user"})), 400)
+    else:
+        new_user = User(username=un, password=password_hash(pw))
+        db.session.add(new_user)
+        db.session.commit()
+        return make_response(jsonify(new_user.to_dict()), 201)
 
 # route for all boats
 @app.route("/boats", methods = ['GET', 'POST'])

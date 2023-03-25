@@ -20,23 +20,21 @@ function App() {
   // },[])
 
   return (
-      <Switch>
-        <div>
-          <Heading />
-          <NavBar />
-          <div className="spacer">
-          </div>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-        </div>
-      </Switch>
+  <div>
+    <Heading />
+    <NavBar />
+      <div className="spacer">
+      </div>
+    <Route path="/about">
+      <About />
+    </Route>
+    <Route path="/login">
+      <Login />
+    </Route>
+    <Route path="/register">
+      <Register />
+    </Route>
+  </div>
   );
 }
 

@@ -1,4 +1,4 @@
-from flask_sqlalchemy import  SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
@@ -6,14 +6,14 @@ class User(db.Model):
    __tablename__ = 'users'
 
    id = db.Column(db.Integer, primary_key = True)
-   name = db.Column(db.String, nullable = False)
+   username = db.Column(db.String, unique = True, nullable = False)
    password = db.Column(db.String, nullable = False)
 
    def to_dict(self):
       return {
          "id": self.id,
-         "name": self.name,
-         "password": self.password
+         "username": self.username,
+         "password": str(self.password)
       }
 
 # BOAT table
