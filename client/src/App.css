@@ -12,14 +12,6 @@ code {
     monospace;
 }
 
-.App {
-  text-align: center;
-  background-image: url("./backgroundPic.png");
-  background-size: cover;
-  height: 100vh;
-} 
-
-
 #horz-list{
   display: flex;
   justify-content: center;
@@ -36,7 +28,6 @@ code {
   font-size: 20px;
   background-color:rgba(214, 249, 249, 0.1);
 }
-
 
 .App-logo {
   height: 40vmin;
@@ -71,10 +62,6 @@ code {
   to {
     transform: rotate(360deg);
   }
-}
-
-body {
-  background-color: black;
 }
 
 .order-form {
