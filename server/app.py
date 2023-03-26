@@ -15,7 +15,7 @@ db.init_app(app)
 # default route
 @app.route("/")
 def default_route():
-    return make_response(jsonify(dict({"status": "default route"})), 200)
+    return make_response(jsonify(dict({"status": "Default route"})), 200)
 
 # website registration with validation against duplicate users
 @app.route("/registration", methods = ['POST'])
@@ -25,13 +25,14 @@ def registration():
     pw = data.get('password')
 
     if User.query.filter(User.username == un).first():
-        return make_response(jsonify(dict({"error":"duplicate user"})), 400)
+        return make_response(jsonify(dict({"error": "This user already exists!"})), 400)
     else:
         new_user = User(username=un, password_hash=pw)
         db.session.add(new_user)
         db.session.commit()
         return make_response(jsonify(new_user.to_dict()), 201)
-    
+
+# website login with authentication
 @app.route("/login", methods = ['POST'])
 def login():
     data = request.get_json()
@@ -41,9 +42,13 @@ def login():
     user = User.query.filter(User.username == un).first()
 
     if not user or user.authenticate(pw) == False:
-        return make_response(jsonify(dict({"error":"username or password incorrect"})), 400)
+        return make_response(jsonify(dict({"error": "The username or password is incorrect."})), 401)
     else:
         return make_response(jsonify(user.to_dict()), 200)
+    
+@app.route("/check_session", methods = ['POST'])
+def check_session():
+    pass
 
 
 # route for all boats
