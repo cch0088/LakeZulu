@@ -1,6 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
 
 db = SQLAlchemy()
+bcrypt = Bcrypt()
 
 class User(db.Model):
    __tablename__ = 'users'
@@ -14,6 +16,14 @@ class User(db.Model):
          "id": self.id,
          "username": self.username
       }
+   
+   def hash(self, password):
+      self.password = bcrypt.generate_password_hash(password.encode('utf-8'))
+   
+   def authenticate(self, password):
+      return bcrypt.check_password_hash(self.password, password.encode('utf-8'))
+
+   password_hash = property(authenticate, hash)
 
 # BOAT table
 class Boat(db.Model):

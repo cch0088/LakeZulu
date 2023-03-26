@@ -38,7 +38,7 @@ function Login({server}) {
                     }
                     else if (key === 'username')
                     {
-                        alert(`Username ${data[key]} created successfully!`);
+                        alert(`Username ${data[key]} logged in successfully!`);
                     }
                 }
             })
