@@ -1,10 +1,11 @@
+import { NavLink } from "react-router-dom";
 import React from "react";
 
 function Heading() {
 
 return(
     <div className="heading">
-        Lake Zulu Boat Rentals
+        <NavLink to="/">Lake Zulu Boat Rentals</NavLink>
      </div>
     )
 }

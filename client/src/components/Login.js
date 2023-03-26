@@ -1,11 +1,11 @@
 import { React, useState } from 'react';
 
-function Login({server}) {
+function Login() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const API = server + "/login";
+    const API = "/login";
     
     function handleSubmit(event) {
         event.preventDefault();

@@ -1,11 +1,11 @@
 import React from "react";
 
-function About() {
+function Reservations() {
 
 return(
     <div className="content">
-        Something here
+        Create a reservation
      </div>
     )
 }
-export default About;
+export default Reservations;

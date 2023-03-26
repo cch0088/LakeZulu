@@ -15,6 +15,8 @@ flask-restful = "*"
 sqlalchemy-serializer = "*"
 flask-cors = "*"
 flask-bcrypt = "*"
+flask-session = "*"
+python-dotenv = "*"
 
 [requires]
 python_full_version = "3.8.13"

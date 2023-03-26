@@ -1,11 +1,11 @@
 import { React, useState } from 'react';
 
-function Register({server}) {
+function Register() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const API = server + "/registration";
+    const API = "/registration";
     
     function handleSubmit(event) {
         event.preventDefault();

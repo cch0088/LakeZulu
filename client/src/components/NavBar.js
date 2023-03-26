@@ -5,10 +5,13 @@ function NavBar() {
 
 return(
     <div className="navigation">
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/register">Register</NavLink>
+        <NavLink to="/create_res">Make Reservations</NavLink>
+        <NavLink to="/events">Upcoming Events</NavLink>
+        <NavLink to="/packages">Special Packages</NavLink>
+        <NavLink to="/inventory">Our Boat Inventory</NavLink>
+        <NavLink to="/contact_page">Contact Information</NavLink>
      </div>
     )
 }
+
 export default NavBar;
