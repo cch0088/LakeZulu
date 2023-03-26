@@ -4,7 +4,7 @@ import React from "react";
 function Register() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
+    const [error, setError] = useState("");
 
     const API = "http://localhost:5555/registration";
     
@@ -13,7 +13,7 @@ function Register() {
         
         if (username.length > 0 && password.length > 0)
         {
-            setErrors([]);
+            setError("");
 
             const formData = {
                 username: username,
@@ -28,11 +28,25 @@ function Register() {
                 body: JSON.stringify(formData)
             };
             
-            fetch(API, API_OPT).then(r => r.json())
+            fetch(API, API_OPT)
+            .then(resp => resp.json())
+            .then(data => {
+                for (let key in data)
+                {
+                    if (key === 'error')
+                    {
+                        setError(data[key]);
+                    }
+                    else if (key === 'username')
+                    {
+                        alert(`Username ${data[key]} created successfully!`);
+                    }
+                }
+            })
         }
         else
         {
-            setErrors(["Missing password or username!"]);
+            setError("Missing password or username!");
         }
     }
 
@@ -58,11 +72,7 @@ return (
             <input type="submit" value="Register" />
         </form>
 
-        {
-            errors.length > 0
-            ? errors.map((error, index) => (<p key={index}>{error}</p>))
-            : null
-        }
+        {error}
     </div>
     )
 }

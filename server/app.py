@@ -20,7 +20,7 @@ def password_hash(password):
 # default route
 @app.route("/")
 def default_route():
-    return {"status": "default route"}, 200
+    return make_response(jsonify(dict({"status": "default route"})), 200)
 
 # website registration with validation against duplicate users
 @app.route("/registration", methods = ['POST'])
