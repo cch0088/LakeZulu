@@ -36,7 +36,7 @@ function App() {
           <Home />
         </Route>
         <Route path="/create_res">
-          <Reservations />
+          <Reservations check_user={user}/>
         </Route>
       </Switch>
     </div>

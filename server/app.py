@@ -17,8 +17,8 @@ def default_route():
     return make_response(jsonify(dict({"status": "Default route"})), 200)
 
 # website registration with validation against duplicate users
-@app.route("/registration", methods = ['POST'])
-def registration():
+@app.route("/register", methods = ['POST'])
+def register():
     data = request.get_json()
     un = data.get('username')
     pw = data.get('password')

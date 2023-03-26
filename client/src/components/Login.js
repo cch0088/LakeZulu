@@ -3,12 +3,15 @@ import { React, useState } from 'react';
 function Login() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-
-    const API = "/login";
+    const [error, setError] = useState(""); 
     
     function handleSubmit(event) {
-        event.preventDefault();
+        let API = "/login";
+
+        if (event.target.name == "register")
+        {
+            API = "/register";
+        }
         
         if (username.length > 0 && password.length > 0)
         {
@@ -32,13 +35,20 @@ function Login() {
             .then(data => {
                 for (let key in data)
                 {
-                    if (key === 'error')
+                    if (key == 'error')
                     {
                         setError(data[key]);
                     }
-                    else if (key === 'username')
+                    else if (key == 'username')
                     {
-                        alert(`Username ${data[key]} logged in successfully!`);
+                        if (event.target.name == "register")
+                        {
+                            setError("Thanks for registering. Please log in.")
+                        }
+                        else
+                        {
+                            window.location.reload(false);
+                        }
                     }
                 }
             })
@@ -58,17 +68,14 @@ function Login() {
     }
 
 return (
-    <div className="content">
-        <form onSubmit={handleSubmit}>
-            Username:
-            <input type="text" name="username" onChange={handleUsername} value={username}/>
-            <br />
-            <br />
-            Password:
-            <input type="password" name="password" onChange={handlePassword} value={password}/>
-            <br />
-            <br />
-            <input type="submit" value="Log In" />
+    <div className="login-form">
+        <form>
+            <div className="label">Username:</div>
+            <input className="field" type="text" name="username" onChange={handleUsername} value={username}/>
+            <div className="label">Password:</div>
+            <input className="field" type="password" name="password" onChange={handlePassword} value={password}/>
+            <input className="button" type="button" name="login" value="Log In" onClick={handleSubmit} />
+            <input className="button" type="button" name="register" value="Register" onClick={handleSubmit} />
         </form>
 
         {error}

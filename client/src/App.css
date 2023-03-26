@@ -46,9 +46,48 @@ code {
   min-height: 450px;
   background-color:rgba(255, 255, 255, 0.85);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.login-form {
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+}
+
+.field {
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+}
+
+.button {
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  margin: 10px;
+  padding: 10px;
 }
 
 .lower-content {

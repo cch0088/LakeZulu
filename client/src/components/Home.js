@@ -4,7 +4,7 @@ function Home() {
 
 return(
     <div className="content">
-        Something here
+        Need some home content here
      </div>
     )
 }

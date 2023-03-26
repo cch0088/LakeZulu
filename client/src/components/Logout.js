@@ -1,5 +1,3 @@
-import { React } from 'react';
-
 function Logout() {
     const API = "/logout";
 
@@ -9,7 +7,7 @@ function Logout() {
 
     fetch(API, API_OPT)
 
-    return (<div className="content"></div>)
+    return None
 }
 
 export default Logout;
