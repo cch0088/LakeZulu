@@ -10,14 +10,7 @@ import About from './components/About';
 import './App.css';
 
 function App() {
-  // const API = "http://localhost:3000/pizzas";
-  // const [pizzas, setPizzas] = useState([]);
-
-  // useEffect(() => {
-  //   fetch(API)
-  //   .then(r => r.json())
-  //   .then(p => setPizzas(p));
-  // },[])
+  const server = "http://localhost:5555"
 
   return (
   <div>
@@ -29,10 +22,10 @@ function App() {
       <About />
     </Route>
     <Route path="/login">
-      <Login />
+      <Login server={server}/>
     </Route>
     <Route path="/register">
-      <Register />
+      <Register server={server}/>
     </Route>
   </div>
   );

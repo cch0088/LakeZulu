@@ -36,6 +36,10 @@ def registration():
         db.session.add(new_user)
         db.session.commit()
         return make_response(jsonify(new_user.to_dict()), 201)
+    
+@app.route("/login")
+def login():
+    pass
 
 # route for all boats
 @app.route("/boats", methods = ['GET', 'POST'])

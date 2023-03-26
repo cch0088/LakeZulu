@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import React from "react";
+import { React, useState } from 'react';
 
-function Register() {
+function Register({server}) {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const API = "http://localhost:5555/registration";
+    const API = server + "/registration";
     
     function handleSubmit(event) {
         event.preventDefault();
