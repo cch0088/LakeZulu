@@ -1,12 +1,11 @@
-from flask import Flask, make_response, jsonify, request
-from flask_cors import CORS
+from flask import Flask, make_response, jsonify, request, session
 from flask_migrate import Migrate
 from models import db, Boat, Time, BoatTime, User
 
 app = Flask(__name__)
-cors = CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///boatrentals.db'
+app.secret_key = 'aojhyg9835yqa-83pioa9gr9-83y6invewrpino39-4-934-89piovbapoi'
 
 migrate = Migrate(app, db)
 
@@ -44,13 +43,25 @@ def login():
     if not user or user.authenticate(pw) == False:
         return make_response(jsonify(dict({"error": "The username or password is incorrect."})), 401)
     else:
+        session['user_id'] = user.id
         return make_response(jsonify(user.to_dict()), 200)
     
-@app.route("/check_session", methods = ['POST'])
-def check_session():
-    pass
+# website login check
+@app.route("/check_login")
+def check_login():
+    user = User.query.filter(User.id == session.get('user_id')).first()
 
+    if not user:
+        return make_response(jsonify(dict({"message": "Not Authorized"})), 401)
+    else:
+        return make_response(jsonify(user.to_dict()), 200)
 
+# website logout    
+@app.route("/logout", methods = ['DELETE'])
+def logout():
+    session['user_id'] = None
+    return make_response(jsonify(dict({"message": "No Content"})), 204)
+    
 # route for all boats
 @app.route("/boats", methods = ['GET', 'POST'])
 def boats():
@@ -67,7 +78,7 @@ def boats():
             setattr(new_boat, key, value)
         db.session.add(new_boat)
         db.session.commit()
-        return make_response(jsonify(new_boat.to_dict_with_times()), 201)   
+        return make_response(jsonify(new_boat.to_dict_with_times()), 201)
 
 
 # route for BOAT by ID
