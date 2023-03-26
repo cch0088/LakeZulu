@@ -8,7 +8,7 @@ function Login() {
     function handleSubmit(event) {
         let API = "/login";
 
-        if (event.target.name == "register")
+        if (event.target.name === "register")
         {
             API = "/register";
         }
@@ -35,13 +35,13 @@ function Login() {
             .then(data => {
                 for (let key in data)
                 {
-                    if (key == 'error')
+                    if (key === 'error')
                     {
                         setError(data[key]);
                     }
-                    else if (key == 'username')
+                    else if (key === 'username')
                     {
-                        if (event.target.name == "register")
+                        if (event.target.name === "register")
                         {
                             setError("Thanks for registering. Please log in.")
                         }
