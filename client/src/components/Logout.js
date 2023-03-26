@@ -1,13 +1,18 @@
-function Logout() {
-    const API = "/logout";
+import { useHistory } from "react-router-dom";
 
+function Logout() {
+  const history = useHistory();
+
+  function handleLogout() {
+    const API = "/logout";
     const API_OPT = {
         method: 'DELETE'
     };
 
-    fetch(API, API_OPT)
+    fetch(API, API_OPT);
+    history.push("/");
+  }
 
-    return None
+  return (<input className="button" type="button" name="logout" value="Log Out" onClick={handleLogout} />)
 }
-
 export default Logout;

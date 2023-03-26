@@ -1,5 +1,6 @@
 import React from "react";
 import Login from "./Login";
+import Logout from "./Logout"
 
 function Reservations({check_user}) {
     if (check_user)
@@ -7,6 +8,7 @@ function Reservations({check_user}) {
         return (
             <div className="content">
                 Welcome back...
+                <Logout />
             </div>
         )
     }
