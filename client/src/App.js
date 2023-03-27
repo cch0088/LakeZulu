@@ -5,6 +5,8 @@ import NavBar from './components/NavBar';
 import Heading from './components/Heading';
 import Home from './components/Home';
 import Reservations from './components/Reservations';
+import Reserve from './components/Reserve';
+import View from './components/View';
 
 import './App.css';
 
@@ -37,6 +39,12 @@ function App() {
         </Route>
         <Route path="/create_res">
           <Reservations check_user={user}/>
+        </Route>
+        <Route path="/new_res">
+          <Reserve check_user={user}/>
+        </Route>
+        <Route path="/view_res">
+          <View check_user={user}/>
         </Route>
       </Switch>
     </div>
