@@ -8,8 +8,7 @@ function Reserve({check_user}) {
 
       return (
           <div className="content">
-            Reserve
-              Welcome back {username}!
+              Welcome back {username}! Please pick a day to get started.
           </div>
       )
   }

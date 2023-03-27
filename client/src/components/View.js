@@ -8,8 +8,7 @@ function View({check_user}) {
 
       return (
           <div className="content">
-            View
-              Welcome back {username}!
+            Current reservations for {username}:
           </div>
       )
   }
