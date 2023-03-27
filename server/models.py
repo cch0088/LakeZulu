@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 
+#  User Table
 class User(db.Model):
    __tablename__ = 'users'
 
@@ -82,6 +83,9 @@ class BoatTime(db.Model):
    __tablename__ = 'boat_times'
    
    id = db.Column(db.Integer, primary_key = True)
+   weekday_price = db.Column(db.Integer)
+   weekend_price = db.Column(db.Integer)
+
 
    boat_id = db.Column(db.Integer, db.ForeignKey('boats.id'), nullable  = False)
    time_id = db.Column(db.Integer, db.ForeignKey('times.id'), nullable  = False)

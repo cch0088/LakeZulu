@@ -1,11 +1,12 @@
 from flask import Flask, make_response, jsonify, request, session
 from flask_migrate import Migrate
 from models import db, Boat, Time, BoatTime, User
+import os 
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///boatrentals.db'
-app.secret_key = 'aojhyg9835yqa-83pioa9gr9-83y6invewrpino39-4-934-89piovbapoi'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SECRET_KEY')
+app.secret_key = os.environ.get('SQLALCHEMY_DATABASE_URI')
 
 migrate = Migrate(app, db)
 
