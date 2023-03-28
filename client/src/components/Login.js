@@ -68,17 +68,20 @@ function Login() {
     }
 
 return (
-    <div className="login-form">
-        <form>
-            <div className="label">Username:</div>
-            <input className="field" type="text" name="username" onChange={handleUsername} value={username}/>
-            <div className="label">Password:</div>
-            <input className="field" type="password" name="password" onChange={handlePassword} value={password}/>
-            <input className="button" type="button" name="login" value="Log In" onClick={handleSubmit} />
-            <input className="button" type="button" name="register" value="Register" onClick={handleSubmit} />
-        </form>
+    <div className="content">
+        Greetings! Please sign into our reservation portal to get started. If you don't have an account, you can create one.
+        <div className="login-form">
+            <form>
+                <div className="label">Username:</div>
+                <input className="field" type="text" name="username" onChange={handleUsername} value={username}/>
+                <div className="label">Password:</div>
+                <input className="field" type="password" name="password" onChange={handlePassword} value={password}/>
+                <input className="button" type="button" name="login" value="Log In" onClick={handleSubmit} />
+                <input className="button" type="button" name="register" value="Register" onClick={handleSubmit} />
+            </form>
 
-        {error}
+            {error}
+        </div>
     </div>
     )
 }

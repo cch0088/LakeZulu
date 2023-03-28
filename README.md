@@ -14,4 +14,4 @@ Include boat reviews to the website
 
 
 Main Component will be the logo for the business and a picture to grab the users attention
-Other components will include, the hyber-links to the everything
+Other components will include, the hyper-links to the everything
