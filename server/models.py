@@ -85,8 +85,6 @@ class BoatTime(db.Model):
    id = db.Column(db.Integer, primary_key = True)
    price = db.Column(db.Integer)
  
-
-
    boat_id = db.Column(db.Integer, db.ForeignKey('boats.id'), nullable  = False)
    time_id = db.Column(db.Integer, db.ForeignKey('times.id'), nullable  = False)
 

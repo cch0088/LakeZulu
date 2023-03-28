@@ -28,33 +28,24 @@ with app.app_context():
     times_db = []
     bts_db   = []
      
-    #  actually creates all instances  
+    #  actually creates all instances
+    # instances of boats  
     for b in boats:
         boat = Boat(name = b['name'], capacity = b['capacity'])
         boats_db.append(boat)
-        
+    # instances of times
     for day in days:
         for hour in hours:
             time = Time(hour = hour, day = day)
             times_db.append(time)
-
-    # for b in boats:
-    #     bt = BoatTime(boat_id = boats_db.index(random.choice(boats_db)) + 1,
-    #                    time_id = times_db.index(random.choice(times_db)) + 1,
-    #                    weekday_price = b['wkday_p'],
-    #                    weekend_price = b['wkend_p'])
-    #     bts_db.append(bt)
-
+    # instances of boatTimes
     for boat in boats:
         for time in times_db:
             bt = BoatTime(boat_id = boats.index(boat) + 1,
                           time_id = times_db.index(time) + 1,
-                        #   weekday_price = boat['wkday_p'],
-                        #   weekend_price = boat['wkend_p']
                           price = boat['wkend_p'] if time.day == 'Sunday' else boat['wkday_p'],)
             bts_db.append(bt)
 
-    
     #  adds all instances to the db and commits it
     db.session.add_all(bts_db)
     db.session.add_all(times_db)
