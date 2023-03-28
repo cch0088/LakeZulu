@@ -3,8 +3,6 @@ import React from "react";
 
 function NavBar({ setDarkMode }) {
 
-
-
 return(
     <div className="navigation">
         <NavLink to="/create_res">Make Reservations</NavLink>
