@@ -21,7 +21,7 @@ with app.app_context():
              {'name': 'catamaran',        'capacity': 4, 'wkday_p': 200, 'wkend_p': 250}, 
              {'name': 'speed-boat',       'capacity': 5, 'wkday_p': 210, 'wkend_p': 260},
              {'name': 'fishing-boat',     'capacity': 3, 'wkday_p': 215, 'wkend_p': 250},
-             {'name': 'swan-paddle-boat', 'capacity': 3, 'wkday_p': 25,  'wkend_p': 40}]
+             {'name': 'swan-paddle-boat', 'capacity': 3, 'wkday_p': 25,  'wkend_p': 40 }]
     
     # initial empty arrays for, to be added to db
     boats_db = []
