@@ -41,7 +41,7 @@ function App() {
   return (
     <div>
       <Heading />
-       <NavBar />
+      <NavBar />
       <Switch>
 
         <Route exact path="/">
@@ -68,13 +68,14 @@ function App() {
             <ContactPage />
         </Route>
 
-        <Route exact to="SpecialPkgs">
+        <Route exact path="/SpecialPkgs">
             <SpecialPkgs />
         </Route>
 
-        <Route exact to="Events">
+        <Route exact path="/Events">
            <Events />
         </Route>
+
       </Switch>
     </div>
   );
