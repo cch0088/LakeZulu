@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
 
-function NavBar() {
+function NavBar({ setDarkMode }) {
+
+
 
 return(
     <div className="navigation">
@@ -10,6 +12,8 @@ return(
         <NavLink to="/SpecialPkgs">Special Packages</NavLink>
         <NavLink to="/BoatsList">Our Boat Inventory</NavLink>
         <NavLink to="/ContactPage">Contact Information</NavLink>
+        <button onClick={ (e) => (setDarkMode(prev => !prev))} 
+                id="darkMode">Dark Mode</button>
      </div>
     )
 }

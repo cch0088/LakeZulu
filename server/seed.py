@@ -3,7 +3,7 @@ from models import db, Boat, Time, BoatTime
 import random
 
 
-# idk why this line is necessary
+# idk why this line is necessary, but it is, so wtvr
 with app.app_context():
     # first deletes anything that's in the database
     Boat.query.delete()
@@ -30,26 +30,33 @@ with app.app_context():
      
     #  actually creates all instances  
     for b in boats:
-        boat  = Boat(name = b['name'], capacity = b['capacity'])
+        boat = Boat(name = b['name'], capacity = b['capacity'])
         boats_db.append(boat)
         
-    for x in range(len(boats_db)):
-        time = Time(hour = random.choice(hours), day = random.choice(days))
-        times_db.append(time)
+    for day in days:
+        for hour in hours:
+            time = Time(hour = hour, day = day)
+            times_db.append(time)
 
-    for b in boats:
-        bt = BoatTime(boat_id = boats_db.index(random.choice(boats_db)) + 1,
-                       time_id = times_db.index(random.choice(times_db)) + 1,
-                       weekday_price = b['wkday_p'],
-                       weekend_price = b['wkend_p'])
-        bts_db.append(bt)
+    # for b in boats:
+    #     bt = BoatTime(boat_id = boats_db.index(random.choice(boats_db)) + 1,
+    #                    time_id = times_db.index(random.choice(times_db)) + 1,
+    #                    weekday_price = b['wkday_p'],
+    #                    weekend_price = b['wkend_p'])
+    #     bts_db.append(bt)
+
+    for boat in boats:
+        for time in times_db:
+            bt = BoatTime(boat_id = boats.index(boat) + 1,
+                          time_id = times_db.index(time) + 1,
+                        #   weekday_price = boat['wkday_p'],
+                        #   weekend_price = boat['wkend_p']
+                          price = boat['wkend_p'] if time.day == 'Sunday' else boat['wkday_p'],)
+            bts_db.append(bt)
+
     
     #  adds all instances to the db and commits it
     db.session.add_all(bts_db)
     db.session.add_all(times_db)
     db.session.add_all(boats_db)
     db.session.commit()    
-
-
-
-

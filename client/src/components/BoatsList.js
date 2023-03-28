@@ -21,7 +21,7 @@ function BoatsList(){
     }, [])
 
     return (
-        <div id="allBoats">
+        <div id="allBoats" className="components">
             {stateBoats.map(boat => <Boat key={boat.id}
                                               boat={boat}
                                               stateTimes={stateTimes}/>)}
