@@ -6,10 +6,10 @@ function NavBar() {
 return(
     <div className="navigation">
         <NavLink to="/create_res">Make Reservations</NavLink>
-        <NavLink to="/events">Upcoming Events</NavLink>
-        <NavLink to="/packages">Special Packages</NavLink>
+        <NavLink to="/Events">Upcoming Events</NavLink>
+        <NavLink to="/SpecialPkgs">Special Packages</NavLink>
         <NavLink to="/BoatsList">Our Boat Inventory</NavLink>
-        <NavLink to="/contact_page">Contact Information</NavLink>
+        <NavLink to="/ContactPage">Contact Information</NavLink>
      </div>
     )
 }

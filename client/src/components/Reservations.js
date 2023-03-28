@@ -44,5 +44,9 @@ function LogoutButton() {
       fetch(API, API_OPT).then(history.push("/"));
     }
   
-    return (<input className="button" type="button" name="logout" value="Log Out" onClick={handleLogout} />)
+    return (<input className="button"
+                   type="button" 
+                   name="logout" 
+                   value="Log Out" 
+                   onClick={handleLogout} />)
   }
