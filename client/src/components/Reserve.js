@@ -33,10 +33,10 @@ function Reserve({schedule}) {
         </div>
           {boats.map((boat, index) => {
           return (
-            <div className="div-table-heading" key={index}>
-            {(days[index] == filterDay) ? (<div className="div-table-cell">{days[index]}</div>) : null}
-            {(days[index] == filterDay) ? (<div className="div-table-cell">{times[index]}</div>) : null}
-            {(days[index] == filterDay) ? (<div className="div-table-cell">{boat.length} boats</div>) : null}
+            <div className="div-table-heading" key={index} id={index} onClick={(e) => console.log(e.target.id)}>
+            {(days[index] == filterDay) ? (<div id={index} className="div-table-cell">{days[index]}</div>) : null}
+            {(days[index] == filterDay) ? (<div id={index} className="div-table-cell">{times[index]}</div>) : null}
+            {(days[index] == filterDay) ? (<div id={index} className="div-table-cell">{boat.length} boats</div>) : null}
           </div>)})}
       </div>
     </div>)
