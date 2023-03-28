@@ -5,6 +5,7 @@ function Home() {
 return(
     <div className="content">
         Need some home content here
+        <inventory />
      </div>
     )
 }

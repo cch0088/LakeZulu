@@ -5,6 +5,8 @@ import NavBar from './components/NavBar';
 import Heading from './components/Heading';
 import Home from './components/Home';
 import Reservations from './components/Reservations';
+import Boat from './components/Boat';
+import BoatsList from './components/BoatsList';
 
 import './App.css';
 
@@ -30,14 +32,21 @@ function App() {
   return (
     <div>
       <Heading />
-      <NavBar />
+       <NavBar />
       <Switch>
+
         <Route exact path="/">
           <Home />
         </Route>
+
         <Route path="/create_res">
-          <Reservations check_user={user}/>
+           <Reservations check_user={user}/>
         </Route>
+
+        <Route exact path="/BoatsList">
+           <BoatsList />
+        </Route>
+
       </Switch>
     </div>
   );

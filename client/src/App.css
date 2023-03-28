@@ -142,3 +142,19 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+#eachBoat {
+  border: 2px solid black;
+  margin: 50px;
+  text-align: center;
+}
+
+#allBoats {
+  /* position: fixed; */
+  /* top: 1045px; */
+  left: auto;
+  right: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 350px 350px 350px;
+}
