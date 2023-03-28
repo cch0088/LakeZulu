@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import NavBar from './components/NavBar';
 import Heading from './components/Heading';
+import Login from './components/Login';
 import Home from './components/Home';
 import Reservations from './components/Reservations';
 import Reserve from './components/Reserve';
@@ -38,13 +39,13 @@ function App() {
           <Home />
         </Route>
         <Route path="/create_res">
-          <Reservations check_user={user}/>
+          {(user) ? <Reservations user={user} /> : <Login />}
         </Route>
         <Route path="/new_res">
-          <Reserve check_user={user}/>
+          {(user) ? <Reserve /> : <Login />}
         </Route>
         <Route path="/view_res">
-          <View check_user={user}/>
+          {(user) ? <View /> : <Login />}
         </Route>
       </Switch>
     </div>
