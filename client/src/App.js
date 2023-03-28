@@ -42,7 +42,7 @@ function App() {
   return (
     <div className={stateDarkMode ? 'darkMode' : null}>
       <Heading />
-       <NavBar setDarkMode={setDarkMode}/>
+      <NavBar setDarkMode={setDarkMode}/>
       <Switch>
 
         <Route exact path="/">
@@ -62,20 +62,22 @@ function App() {
         </Route>
 
         <Route exact path="/BoatsList">
-           <BoatsList />
+          <BoatsList />
         </Route>
 
         <Route exact path="/ContactPage" >
-            <ContactPage stateDarkMode={stateDarkMode}/>
+           <ContactPage stateDarkMode={stateDarkMode}/>
         </Route>
 
         <Route exact path="/SpecialPkgs">
-            <SpecialPkgs />
+           <SpecialPkgs />
         </Route>
 
         <Route exact path="/Events">
-           <Events />
+          <Events />
+
         </Route>
+
       </Switch>
     </div>
   );
