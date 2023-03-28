@@ -1,6 +1,8 @@
-import React from "react";
+import { React, useState } from "react";
 
 function Reserve({schedule}) {
+  const [filterDay, setFilterDay] = useState('Monday');
+
   let days = [];
   let times = [];
   let boats = [];
@@ -13,22 +15,29 @@ function Reserve({schedule}) {
 
   return (
     <div className="content">
-      The following days are available at this time:
+      Pick a day:
+      <select name='day' id='day' onChange={(e) => {setFilterDay(e.target.value)}}>
+        <option value='Monday'>Monday</option>
+        <option value='Tuesday'>Tuesday</option>
+        <option value='Wednesday'>Wednesday</option>
+        <option value='Thursday'>Thursday</option>
+        <option value='Friday'>Friday</option>
+        <option value='Saturday'>Saturday</option>
+        <option value='Sunday'>Sunday</option>
+      </select>
       <div className="div-table">
-        <table>
-          <tr className="bold">
-            <td>Day</td>
-            <td>Time</td>
-            <td>Available Units</td>
-          </tr>
+        <div className="div-table-heading-title">
+          <div className="div-table-cell">Day</div>
+          <div className="div-table-cell">Time</div>
+          <div className="div-table-cell">Available</div>
+        </div>
           {boats.map((boat, index) => {
-            return (
-            <tr className="select" key={index}>
-              <td>{days[index]}</td>
-              <td>{times[index]}</td>
-              <td>{boat.length}</td>
-            </tr>)})}
-        </table>
+          return (
+            <div className="div-table-heading" key={index}>
+            {(days[index] == filterDay) ? (<div className="div-table-cell">{days[index]}</div>) : null}
+            {(days[index] == filterDay) ? (<div className="div-table-cell">{times[index]}</div>) : null}
+            {(days[index] == filterDay) ? (<div className="div-table-cell">{boat.length} boats</div>) : null}
+          </div>)})}
       </div>
     </div>)
 }

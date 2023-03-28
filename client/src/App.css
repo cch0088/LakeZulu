@@ -163,29 +163,29 @@ code {
   margin-top: 10px;
   border: 2px solid rgb(0, 0, 0);
   background-color: rgb(214, 249, 249);
-  width: 25%;
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 
-.div-table table {
-  padding: 10px;
-  width: 100%;
-}
-
-.div-table td {
+.div-table-cell {
   padding: 4px;
-  text-align: center;
-  width: 33%;
+  margin: 2px;
+  width: 120px;
 }
 
-.bold {
+.div-table-heading-title {
   font-weight: bold;
+  display: flex;
+  flex-direction: row;
 }
 
-.select:hover {
-  border: 2px solid black;
+.div-table-heading {
+  display: flex;
+  flex-direction: row;
+}
+
+.div-table-heading:hover {
   background-color: lightblue;
   font-weight: bold;
   cursor: pointer;
