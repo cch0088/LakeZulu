@@ -144,27 +144,44 @@ code {
 }
 
 .div-table {
+  margin-top: 10px;
   border: 2px solid rgb(0, 0, 0);
   background-color: rgb(214, 249, 249);
+  width: 25%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.div-table table {
   padding: 10px;
-  width: 400px;
-  margin: 4px;
-  display: inline-table;
+  width: 100%;
 }
 
-.div-table-item {
-  border: 2px solid rgb(0, 0, 0);
+.div-table td {
+  padding: 4px;
+  text-align: center;
+  width: 33%;
 }
 
-#eachBoat {
+.bold {
+  font-weight: bold;
+}
+
+.select:hover {
+  border: 2px solid black;
+  background-color: lightblue;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.eachBoat {
   border: 2px solid black;
   margin: 50px;
   text-align: center;
 }
 
 #allBoats {
-  /* position: fixed; */
-  /* top: 1045px; */
   left: auto;
   right: auto;
   display: grid;

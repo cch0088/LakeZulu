@@ -15,12 +15,21 @@ function Reserve({schedule}) {
     <div className="content">
       The following days are available at this time:
       <div className="div-table">
-        <div className="div-table-item">Day</div><div className="div-table-item">Time</div><div className="div-table-item">Available Units</div>
-        {boats.map((boat, index) => {
-          return <div className="div-table-item" key={index}>{days[index]}<div>{times[index]}</div><div>{boat.length} boats</div></div>
-        })}
+        <table>
+          <tr className="bold">
+            <td>Day</td>
+            <td>Time</td>
+            <td>Available Units</td>
+          </tr>
+          {boats.map((boat, index) => {
+            return (
+            <tr className="select" key={index}>
+              <td>{days[index]}</td>
+              <td>{times[index]}</td>
+              <td>{boat.length}</td>
+            </tr>)})}
+        </table>
       </div>
-    </div>
-  )
+    </div>)
 }
 export default Reserve;

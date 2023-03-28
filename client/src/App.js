@@ -61,19 +61,19 @@ function App() {
         </Route>
 
         <Route exact path="/BoatsList">
-           <BoatsList />
+          <BoatsList />
         </Route>
 
         <Route exact path="/ContactPage" >
-            <ContactPage />
+          <ContactPage />
         </Route>
 
         <Route exact path="/SpecialPkgs">
-            <SpecialPkgs />
+          <SpecialPkgs />
         </Route>
 
         <Route exact path="/Events">
-           <Events />
+          <Events />
         </Route>
 
       </Switch>
