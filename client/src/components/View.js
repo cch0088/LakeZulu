@@ -1,6 +1,6 @@
 import React from "react";
 
-function View() {
+function View({schedule}) {
   return (
       <div className="content">
         Current reservations:

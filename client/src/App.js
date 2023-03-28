@@ -13,18 +13,22 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
-  const API = "/check_login";
+  const [schedule, setSchedule] = useState([]);
+  
+  const login = "/check_login";
+  const API = "/times";
 
   // check log in status
   useEffect(() => {
-    fetch(API).then(
+    fetch(login).then(
       (resp) => {
         if (resp.ok) {
           resp.json().then(
             (user) => {
               setUser(user)
             }
-          );
+          ).then(fetch(API).then(resp => resp.json())
+          .then(data => setSchedule(data)));
         }
       }
     )
@@ -42,10 +46,10 @@ function App() {
           {(user) ? <Reservations user={user} /> : <Login />}
         </Route>
         <Route path="/new_res">
-          {(user) ? <Reserve /> : <Login />}
+          {(user) ? <Reserve schedule={schedule} /> : <Login />}
         </Route>
         <Route path="/view_res">
-          {(user) ? <View /> : <Login />}
+          {(user) ? <View schedule={schedule} /> : <Login />}
         </Route>
       </Switch>
     </div>
@@ -53,3 +57,4 @@ function App() {
 }
 
 export default App;
+

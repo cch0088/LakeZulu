@@ -1,19 +1,16 @@
 import React from "react";
 
-function Reserve() {
-  const API = "/times";
+function Reserve({schedule}) {
+  let days = [];
 
-  fetch(API).then(resp => resp.json())
-  .then(data => {
-    for (let record of data) {
-      console.log(record['day']);
-      console.log(record['hour']);
-      console.log(record['boats']);
-    }
-  });
+  for (let record of schedule) {
+    days.push(record['day']);
+  }
+
   return (
     <div className="content">
       The following days are available at this time:
+      {days.map((day, index) => {return <p key={index}>{day}</p>})}
     </div>
   )
 }
