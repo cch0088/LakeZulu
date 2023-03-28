@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Reservations from './components/Reservations';
 import Reserve from './components/Reserve';
 import View from './components/View';
+import BoatsList from './components/BoatsList';
 
 import './App.css';
 
@@ -39,11 +40,9 @@ function App() {
       <Heading />
        <NavBar />
       <Switch>
-
         <Route exact path="/">
           <Home />
         </Route>
-
         <Route path="/create_res">
           {(user) ? <Reservations user={user} /> : <Login />}
         </Route>
@@ -53,11 +52,9 @@ function App() {
         <Route path="/view_res">
           {(user) ? <View schedule={schedule} /> : <Login />}
         </Route>
-
         <Route exact path="/BoatsList">
            <BoatsList />
         </Route>
-
       </Switch>
     </div>
   );

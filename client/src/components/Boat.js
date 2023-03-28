@@ -1,5 +1,3 @@
-  
-  
   function Boat(props){
     return (
       <div id="eachBoat">
