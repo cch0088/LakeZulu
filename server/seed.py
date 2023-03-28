@@ -5,7 +5,7 @@ import random
 
 # idk why this line is necessary
 with app.app_context():
-    # first deletes anythong that's in the database
+    # first deletes anything that's in the database
     Boat.query.delete()
     Time.query.delete()
     BoatTime.query.delete()

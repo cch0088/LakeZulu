@@ -9,6 +9,9 @@ import Reservations from './components/Reservations';
 import Reserve from './components/Reserve';
 import View from './components/View';
 import BoatsList from './components/BoatsList';
+import ContactPage from './components/ContactPage';
+import SpecialPkgs from './components/SpecialPkgs';
+import Events from './components/Events';
 
 import './App.css';
 
@@ -40,20 +43,37 @@ function App() {
       <Heading />
        <NavBar />
       <Switch>
+
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/create_res">
+
+        <Route exact path="/create_res">
           {(user) ? <Reservations user={user} /> : <Login />}
         </Route>
-        <Route path="/new_res">
+
+        <Route exact path="/new_res">
           {(user) ? <Reserve schedule={schedule} /> : <Login />}
         </Route>
-        <Route path="/view_res">
+
+        <Route exact path="/view_res">
           {(user) ? <View schedule={schedule} /> : <Login />}
         </Route>
+
         <Route exact path="/BoatsList">
            <BoatsList />
+        </Route>
+
+        <Route exact path="/ContactPage" >
+            <ContactPage />
+        </Route>
+
+        <Route exact to="SpecialPkgs">
+            <SpecialPkgs />
+        </Route>
+
+        <Route exact to="Events">
+           <Events />
         </Route>
       </Switch>
     </div>
