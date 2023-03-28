@@ -1,10 +1,12 @@
 
 
-function ContactPage(){
+function ContactPage({ stateDarkMode }){
 
 
     return (
-        <h1>Contact Info Component</h1>
+        <div className="components">
+           <h1>Contact Info Component</h1>
+        </div>
     )
 }
 

@@ -83,8 +83,8 @@ class BoatTime(db.Model):
    __tablename__ = 'boat_times'
    
    id = db.Column(db.Integer, primary_key = True)
-   weekday_price = db.Column(db.Integer)
-   weekend_price = db.Column(db.Integer)
+   price = db.Column(db.Integer)
+ 
 
 
    boat_id = db.Column(db.Integer, db.ForeignKey('boats.id'), nullable  = False)

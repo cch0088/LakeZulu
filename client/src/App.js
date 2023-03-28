@@ -18,6 +18,7 @@ import './App.css';
 function App() {
   const [user, setUser] = useState(null);
   const [schedule, setSchedule] = useState([]);
+  const [stateDarkMode, setDarkMode] = useState(false)
   
   const login = "/check_login";
   const API = "/times";
@@ -39,9 +40,9 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className={stateDarkMode ? 'darkMode' : null}>
       <Heading />
-       <NavBar />
+       <NavBar setDarkMode={setDarkMode}/>
       <Switch>
 
         <Route exact path="/">
@@ -65,14 +66,14 @@ function App() {
         </Route>
 
         <Route exact path="/ContactPage" >
-            <ContactPage />
+            <ContactPage stateDarkMode={stateDarkMode}/>
         </Route>
 
-        <Route exact to="SpecialPkgs">
+        <Route exact path="/SpecialPkgs">
             <SpecialPkgs />
         </Route>
 
-        <Route exact to="Events">
+        <Route exact path="/Events">
            <Events />
         </Route>
       </Switch>
