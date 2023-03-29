@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
-import Boat from "./Boat"
+import { useEffect, useState } from "react";
+import Boat from "./Boat";
+import Imagegallery from "./Imagegallery";
 
 function BoatsList(){
     //  state for the boats and times
@@ -21,11 +22,18 @@ function BoatsList(){
     }, [])
 
     return (
-        <div id="allBoats" className="components">
-            {stateBoats.map(boat => <Boat key={boat.id}
+        <div>
+
+                    <div>
+                    <Imagegallery/>
+                    </div>
+                    <div id="allBoats" className="components">
+            
+                    {stateBoats.map(boat => <Boat key={boat.id}
                                               boat={boat}
                                               stateTimes={stateTimes}/>)}
-           
+                    </div>
+            
         </div>
     )
 }
