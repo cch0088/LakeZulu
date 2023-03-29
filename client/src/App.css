@@ -1,3 +1,22 @@
+.darkMode {
+  background-color: black;
+  color: white;
+}
+
+#darkMode {
+  position: absolute;
+  top: 92px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 3px;
+  height: 65px;
+  cursor: pointer;
+}
+
+#darkMode:hover{
+  opacity: .5;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,7 +37,6 @@ code {
   border-style: solid;
   border-radius: 10px;
   margin: 0 10px 10px;
-
   text-align: center;
 }
 
@@ -26,11 +44,9 @@ code {
   border-color: black;
   border-width: 2px;
   border-style: solid;
-  
   display: inline-block;
   width: 100px;
   padding: 12px;
-
   text-decoration: none;
   color: black;
   text-align: center;
@@ -141,4 +157,50 @@ code {
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+.div-table {
+  margin-top: 10px;
+  border: 2px solid rgb(0, 0, 0);
+  background-color: rgb(214, 249, 249);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.div-table-cell {
+  padding: 4px;
+  margin: 2px;
+  width: 120px;
+}
+
+.div-table-heading-title {
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+}
+
+.div-table-heading {
+  display: flex;
+  flex-direction: row;
+}
+
+.div-table-heading:hover {
+  background-color: lightblue;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.eachBoat {
+  border: 2px solid black;
+  margin: 50px;
+  text-align: center;
+}
+
+#allBoats {
+  left: auto;
+  right: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 350px 350px 350px;
 }

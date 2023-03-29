@@ -1,26 +1,14 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Login from "./Login";
-import Logout from "./Logout"
 
-function Reservations({check_user}) {
-    if (check_user)
-    {
-        const username = Object.values(check_user)[1]
-
-        return (
-            <div className="content">
-                Welcome back {username}!
-                <ReserveButton />
-                <ViewButton />
-                <Logout />
-            </div>
-        )
-    }
-    else
-    {
-        return <Login />
-    }
+function Reservations({user}) {
+    return (
+        <div className="content">
+            Welcome back {user.username}!
+            <ReserveButton />
+            <ViewButton />
+            <LogoutButton />
+        </div>)
 }
 export default Reservations;
 
@@ -43,3 +31,22 @@ function ViewButton() {
   
     return (<input className="button" type="button" name="view" value="View Reservations" onClick={handleClick} />)
 }
+
+function LogoutButton() {
+    const history = useHistory();
+
+    function handleLogout() {
+      const API = "/logout";
+      const API_OPT = {
+          method: 'DELETE'
+      };
+  
+      fetch(API, API_OPT).then(history.push("/"));
+    }
+  
+    return (<input className="button"
+                   type="button" 
+                   name="logout" 
+                   value="Log Out" 
+                   onClick={handleLogout} />)
+  }

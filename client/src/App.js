@@ -3,52 +3,85 @@ import { Route, Switch } from "react-router-dom";
 
 import NavBar from './components/NavBar';
 import Heading from './components/Heading';
+import Login from './components/Login';
 import Home from './components/Home';
 import Reservations from './components/Reservations';
 import Reserve from './components/Reserve';
 import View from './components/View';
+import BoatsList from './components/BoatsList';
+import ContactPage from './components/ContactPage';
+import SpecialPkgs from './components/SpecialPkgs';
+import Events from './components/Events';
 
 import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
-  const API = "/check_login";
+  const [schedule, setSchedule] = useState([]);
+  const [stateDarkMode, setDarkMode] = useState(false)
+  
+  const login = "/check_login";
+  const API = "/times";
 
   // check log in status
   useEffect(() => {
-    fetch(API).then(
+    fetch(login).then(
       (resp) => {
         if (resp.ok) {
           resp.json().then(
             (user) => {
               setUser(user)
             }
-          );
+          ).then(fetch(API).then(resp => resp.json())
+          .then(data => setSchedule(data)));
         }
       }
     )
   }, []);
 
   return (
-    <div>
+    <div className={stateDarkMode ? 'darkMode' : null}>
       <Heading />
-      <NavBar />
+      <NavBar setDarkMode={setDarkMode}/>
       <Switch>
+
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/create_res">
-          <Reservations check_user={user}/>
+
+        <Route exact path="/create_res">
+          {(user) ? <Reservations user={user} /> : <Login />}
         </Route>
-        <Route path="/new_res">
-          <Reserve check_user={user}/>
+
+        <Route exact path="/new_res">
+          {(user) ? <Reserve schedule={schedule} /> : <Login />}
         </Route>
-        <Route path="/view_res">
-          <View check_user={user}/>
+
+        <Route exact path="/view_res">
+          {(user) ? <View schedule={schedule} /> : <Login />}
         </Route>
+
+        <Route exact path="/BoatsList">
+          <BoatsList />
+        </Route>
+
+        <Route exact path="/ContactPage" >
+           <ContactPage stateDarkMode={stateDarkMode}/>
+        </Route>
+
+        <Route exact path="/SpecialPkgs">
+           <SpecialPkgs />
+        </Route>
+
+        <Route exact path="/Events">
+          <Events />
+
+        </Route>
+
       </Switch>
     </div>
   );
 }
 
 export default App;
+
