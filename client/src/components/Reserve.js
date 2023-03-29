@@ -38,6 +38,10 @@ function Reserve({schedule, pricing}) {
     setStep(0);
   }
 
+  function properName(name) {
+    return name.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  }
+
   if (step === 0)
   {
     return (
@@ -83,7 +87,7 @@ function Reserve({schedule, pricing}) {
           {boats[reservation].map((boat, index) => {
           return (
             <div className="div-table-heading" key={index} id={index} onClick={(e) => handleBoatSelection(e)}>
-              <div id={index} className="div-table-cell">{boat.name}</div>
+              <div id={index} className="div-table-cell">{properName(boat.name)}</div>
               <div id={index} className="div-table-cell">{boat.capacity}</div>
               <div id={index} className="div-table-cell">${getPrice(time_id[reservation], boat.id)}</div>
             </div>)})}
