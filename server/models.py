@@ -83,7 +83,8 @@ class BoatTime(db.Model):
    __tablename__ = 'boat_times'
    
    id = db.Column(db.Integer, primary_key = True)
-   price = db.Column(db.Integer)
+   price = db.Column(db.Integer, nullable = False)
+   reserved = db.Column(db.Boolean, nullable = False)
  
    boat_id = db.Column(db.Integer, db.ForeignKey('boats.id'), nullable  = False)
    time_id = db.Column(db.Integer, db.ForeignKey('times.id'), nullable  = False)
@@ -92,6 +93,8 @@ class BoatTime(db.Model):
        return {
           "id": self.id,
           "boat_id": self.boat_id,
-          "time_id": self.time_id
+          "time_id": self.time_id,
+          "price": self.price,
+          "reserved": self.reserved
        }
    
