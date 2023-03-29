@@ -16,12 +16,12 @@ with app.app_context():
     hours = [ '9:00-10:00','10:00-11:00','11:00-12:00','12:00-1:00','1:00-2:00','2:00-3:00','3:00-4:00','4:00-5:00','5:00-6:00',
               '9:30-10:30','10:30-11:30','11:30-12:30','12:30-1:30','1:30-2:30','2:30-3:30','3:30-4:30','4:30-5:30','5:30-6:30',]
     
-    boats = [{'name': 'kayak',            'capacity': 1, 'wkday_p': 20,  'wkend_p': 30 },
-             {'name': 'jet-ski',          'capacity': 2, 'wkday_p': 150, 'wkend_p': 190}, 
-             {'name': 'catamaran',        'capacity': 4, 'wkday_p': 200, 'wkend_p': 250}, 
-             {'name': 'speed-boat',       'capacity': 5, 'wkday_p': 210, 'wkend_p': 260},
-             {'name': 'fishing-boat',     'capacity': 3, 'wkday_p': 215, 'wkend_p': 250},
-             {'name': 'swan-paddle-boat', 'capacity': 3, 'wkday_p': 25,  'wkend_p': 40 }]
+    boats = [{'name': 'Kayak',            'capacity': 1, 'wkday_p': 20,  'wkend_p': 30 },
+             {'name': 'Jet-Ski',          'capacity': 2, 'wkday_p': 150, 'wkend_p': 190}, 
+             {'name': 'Catamaran',        'capacity': 4, 'wkday_p': 200, 'wkend_p': 250}, 
+             {'name': 'Speed-Boat',       'capacity': 5, 'wkday_p': 210, 'wkend_p': 260},
+             {'name': 'Fishing-Boat',     'capacity': 3, 'wkday_p': 215, 'wkend_p': 250},
+             {'name': 'Swan-Paddle-Boat', 'capacity': 3, 'wkday_p': 25,  'wkend_p': 40 }]
     
     # initial empty arrays for, to be added to db
     boats_db = []
