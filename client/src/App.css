@@ -1,3 +1,12 @@
+* {
+  border: 1px solid rgb(230, 17, 17);
+}
+
+.full-page {
+ height: 100vh;
+ width: 100%;
+}
+
 .darkMode {
   background-color: black;
   color: white;
@@ -15,6 +24,11 @@
 
 #darkMode:hover{
   opacity: .5;
+}
+
+img {
+  height: auto;
+  width: 200px;
 }
 
 body {
