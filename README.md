@@ -9,9 +9,9 @@ Calendar to check availability
 Open Hours- 6AM-10AM and 1PM-7PM
 FrontEnd will include the amount of people, that will display the correct boat for that size
 Reservation system that allows the customer to choose the amount of people, the time frame, consent form.
-Include reviews to the website
+Include boat reviews to the website
 
 
 
 Main Component will be the logo for the business and a picture to grab the users attention
-Other components will include, the hyber-links to the everything
+Other components will include, the hyper-links to the everything
