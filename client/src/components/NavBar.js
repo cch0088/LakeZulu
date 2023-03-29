@@ -10,8 +10,13 @@ return(
         <NavLink to="/SpecialPkgs">Special Packages</NavLink>
         <NavLink to="/BoatsList">Our Boat Inventory</NavLink>
         <NavLink to="/ContactPage">Contact Information</NavLink>
-        <button onClick={ (e) => (setDarkMode(prev => !prev))} 
-                id="darkMode">Dark Mode</button>
+        <button  id="darkMode"
+                 onClick={ (e) => {
+            // sets a class on the whole body
+            document.querySelector('body').classList.toggle('darkMode')
+            (setDarkMode(prev => !prev))
+        }}     
+             >Dark Mode</button>
      </div>
     )
 }

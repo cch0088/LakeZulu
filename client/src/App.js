@@ -40,7 +40,7 @@ function App() {
   }, []);
 
   return (
-    <div className={stateDarkMode ? 'darkMode' : null}>
+    <div className={stateDarkMode ? 'darkMode' : null} style={{height: '100vh', width: '100%'}}>
       <Heading />
       <NavBar setDarkMode={setDarkMode}/>
       <Switch>

@@ -1,3 +1,5 @@
+  
+  
   function Boat(props){
     const boat_img = "./images/" + props.boat.name + ".jpg"
 
