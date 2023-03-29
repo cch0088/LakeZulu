@@ -1,23 +1,41 @@
 import { React, useState } from "react";
 
-function Reserve({schedule}) {
+function Reserve({schedule, pricing}) {
   const [filterDay, setFilterDay] = useState('Monday');
   const [reservation, setReservation] = useState(0);
   const [step, setStep] = useState(0);
 
+  // de-construct the schedule object into individual indexes for populating table
   let days = [];
   let times = [];
   let boats = [];
+  let time_id = []; // used for price lookup
+  let price_matrix = [];
 
   for (let record of schedule) {
     days.push(record['day']);
     times.push(record['hour']);
     boats.push(record['boats']);
+    time_id.push(record['id']);
   }
 
-  function handleSelection(e) {
+  // de-construct the pricing object and reconstruct into price matrix array
+  for (let record of pricing) {
+    price_matrix.push([record['boat_id'] + ":" + record['time_id'], record['price']]);
+  }
+
+  function getPrice(time_id, boat_id) {
+    let list_price = price_matrix.filter(([key, value]) => key === `${boat_id}:${time_id}`);
+    return list_price[0][1];
+  }
+
+  function handleTimeSelection(e) {
     setReservation(e.target.id);
     setStep(1);
+  }
+
+  function handleBoatSelection(e) {
+    setStep(0);
   }
 
   if (step === 0)
@@ -42,7 +60,7 @@ function Reserve({schedule}) {
           </div>
             {boats.map((boat, index) => {
             return (
-              <div className="div-table-heading" key={index} id={index} onClick={(e) => handleSelection(e)}>
+              <div className="div-table-heading" key={index} id={index} onClick={(e) => handleTimeSelection(e)}>
               {(days[index] === filterDay) ? (<div id={index} className="div-table-cell">{days[index]}</div>) : null}
               {(days[index] === filterDay) ? (<div id={index} className="div-table-cell">{times[index]}</div>) : null}
               {(days[index] === filterDay) ? (<div id={index} className="div-table-cell">{boat.length} boats</div>) : null}
@@ -64,10 +82,10 @@ function Reserve({schedule}) {
           </div>
           {boats[reservation].map((boat, index) => {
           return (
-            <div className="div-table-heading" key={index} id={index} onClick={(e) => handleSelection(e)}>
+            <div className="div-table-heading" key={index} id={index} onClick={(e) => handleBoatSelection(e)}>
               <div id={index} className="div-table-cell">{boat.name}</div>
               <div id={index} className="div-table-cell">{boat.capacity}</div>
-              <div id={index} className="div-table-cell">$30</div>
+              <div id={index} className="div-table-cell">${getPrice(time_id[reservation], boat.id)}</div>
             </div>)})}
         </div>
       </div>);
