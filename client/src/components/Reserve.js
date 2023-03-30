@@ -8,7 +8,7 @@ function Reserve({schedule, pricing}) {
   const [filterDay, setFilterDay] = useState('Monday');
   const [reservation, setReservation] = useState(0);
   const [step, setStep] = useState(0);
-  const [formSigned, setFormSigned] = useState(0);
+  const [formSigned, setFormSigned] = useState(false);
 
   // de-construct the schedule object into individual indexes for populating table
   let days = [];
