@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-function Reserve({schedule, pricing}) {
+function Reserve({schedule, pricing, username}) {
   const [boat, setBoat] = useState('');
   const [capacity, setCapacity] = useState(0);
   const [price, setPrice] = useState(0);
@@ -57,7 +57,21 @@ function Reserve({schedule, pricing}) {
 
   function handleReservation(e, reservation_id) {
     // run a fetch request to insert into boat_times table
-    
+    const API = "/boatTime/" + resID;
+
+    const patchData = {
+      "reserved": Object.values(username)[1]
+    };
+
+    const API_OPT = {
+      method: 'PATCH',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(patchData)
+    };
+
+    fetch(API, API_OPT).then(resp => resp.json());
   }
 
   function properName(name) {
