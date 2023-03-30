@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function ContactPage() {
      
 return(
+  <div className="content">
   <Container>
   <Row
      className= "mb-5 mt-3">
@@ -22,11 +23,11 @@ return(
       <Col lg= '5' className ="mb-5">
           <h3 className="color_sec py-4">Get in touch</h3>
           <address>
-            <strong>Email : email@gmail.com</strong>
+            <strong>Email: info@lakezulu.com</strong>
             <br/>
             <br/>
             <p>
-              <strong> Phone : xxx-xxx-xxxx</strong>
+              <strong>Phone: 212-555-5555</strong>
             </p> 
           </address>
         <p>{contactConfig.description}</p>
@@ -69,6 +70,7 @@ return(
         </Col>
       </Row>
 </Container>
+</div>
 
 );
 }
