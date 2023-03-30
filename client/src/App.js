@@ -79,7 +79,6 @@ function App() {
 
         <Route exact path="/Events">
           <Events />
-
         </Route>
 
       </Switch>

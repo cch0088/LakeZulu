@@ -29,6 +29,7 @@ with app.app_context():
     bts_db   = []
      
     #  actually creates all instances
+    #
     # instances of boats  
     for b in boats:
         boat = Boat(name = b['name'], capacity = b['capacity'])
