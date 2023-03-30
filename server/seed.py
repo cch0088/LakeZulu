@@ -45,7 +45,7 @@ with app.app_context():
             bt = BoatTime(boat_id = boats.index(boat) + 1,
                           time_id = times_db.index(time) + 1,
                           price = boat['wkend_p'] if time.day == 'Sunday' else boat['wkday_p'],
-                          reserved = 'Reserved By: N/A')
+                          reserved = '')
             bts_db.append(bt)
 
     #  adds all instances to the db and commits it

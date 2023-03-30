@@ -58,7 +58,7 @@ function App() {
         </Route>
 
         <Route exact path="/new_res">
-          {(user) ? <Reserve schedule={schedule} pricing={pricing} /> : <Login />}
+          {(user) ? <Reserve schedule={schedule} pricing={pricing} username={user} /> : <Login />}
         </Route>
 
         <Route exact path="/view_res">
