@@ -26,7 +26,8 @@ function Reserve({schedule, pricing}) {
 
   // de-construct the pricing object and reconstruct into price matrix array
   for (let record of pricing) {
-    price_matrix.push([record['boat_id'] + ':' + record['time_id'], record['id'] + ':' + record['price']]);
+    price_matrix.push([record['boat_id'] + ':' + record['time_id'], 
+    record['id'] + ':' + record['price'] + ':' + record['reserved']]);
   }
 
   function getPrice(boat_id, time_id, get_id) {
@@ -56,7 +57,7 @@ function Reserve({schedule, pricing}) {
 
   function handleReservation(e, reservation_id) {
     // run a fetch request to insert into boat_times table
-    console.log(reservation_id);
+    
   }
 
   function properName(name) {
@@ -123,9 +124,12 @@ function Reserve({schedule, pricing}) {
           <div>You picked a {boat} with capacity for {(capacity === 1) ? '1 person' : capacity + ' people'}.</div>
           <div>Your cost will be ${price} per hour starting from departure.</div>
           <div>Please check the box to sign the waiver below and click submit to store your reservation.</div>
-          <input type='checkbox' />I agree to all posted rules and waive my right to sue Lake Zulu for any damages.
+          <input type='checkbox' onChange={(e) => setFormSigned(formSigned => !formSigned)}/>
+          <div>I agree to all posted rules and waive my right to sue Lake Zulu for any damages.</div>
           <br /><br />
-          <input type='button' value='Confirm Reservation' onClick={(e) => handleReservation(e, resID)} />
+          {(formSigned)
+           ? <input type='button' value='Confirm Reservation' onClick={(e) => handleReservation(e, resID)} /> 
+           : <input type='button' disabled value='Confirm Reservation' />}
         </div>);
     }
 }
