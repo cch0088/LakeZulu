@@ -63,7 +63,7 @@ function App() {
         </Route>
 
         <Route exact path="/view_res">
-          {(user) ? <View schedule={schedule} pricing={pricing} /> : <Login />}
+          {(user) ? <View schedule={schedule} pricing={pricing} username={user} /> : <Login />}
         </Route>
 
         <Route exact path="/BoatsList">

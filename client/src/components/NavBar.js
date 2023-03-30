@@ -8,7 +8,6 @@ return(
         <NavLink to="/create_res">Reservations</NavLink>
         <NavLink to="/Events">Events</NavLink>
         <NavLink to="/SpecialPkgs">Packages</NavLink>
-        <NavLink to="/BoatsList">Boats</NavLink>
         <NavLink to="/ContactPage">Contact Us</NavLink>
         <button  id="darkMode"
                  onClick={ (e) => { // sets a class on the whole body, so the *entire* page has dark mode

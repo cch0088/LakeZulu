@@ -8,8 +8,8 @@ function Boat(props){
   return (
     <div className="eachBoat">
         <img src={boat_img} alt={props.boat.name}/>
-        <h1>{properName(props.boat.name)}</h1>
-        <h2>Capacity: {props.boat.capacity}</h2>
+        <h2>{properName(props.boat.name)}</h2>
+        <h3>for {(props.boat.capacity === 1) ? '1 person' : props.boat.capacity + ' people'}</h3>
     </div>
   )
 }

@@ -1,11 +1,11 @@
 import React from "react";
+import BoatsList from "./BoatsList";
 
 function Home() {
 
 return(
     <div className="content">
-        Need some home content here
-        <inventory />
+        <BoatsList />
      </div>
     )
 }

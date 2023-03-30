@@ -1,6 +1,5 @@
 .darkMode {
   background-color: black;
-  color: white;
 }
 
 #darkMode {
@@ -27,12 +26,11 @@
   border: 1px solid #fff;
 }
 
-  img {
-    height: 100px;
-    width: 100%;
+img {
     border-radius: 20px; 
     padding: 3px;
-  }
+    width: 300px;
+}
 
 .contact_form input.form-control {
   margin-bottom: 2em;
@@ -190,11 +188,6 @@ section .events ul li .details a:hover {
   border-color: #e91e63;
 }
 
-img {
-  height: auto;
-  width: 100px;
-} 
-
 body {
   background-color: white;
   padding-top: 60px;
@@ -232,9 +225,6 @@ code {
 }
 
 .content {
-  border-color: black;
-  border-width: 2px;
-  border-style: solid;
   margin: 0 10px 10px;
   min-height: 450px;
   background-color:rgba(255, 255, 255, 0.85);
@@ -254,6 +244,8 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 300px;
+  height: 300px;
 }
 
 .label {
@@ -370,8 +362,6 @@ code {
 }
 
 .eachBoat {
-  /* border: 2px solid black;
-  border-radius: 40px; */
   margin: 50px;
   text-align: center;
   height: 270px;
