@@ -1,18 +1,4 @@
-<<<<<<< HEAD
- 
-  /* border: 1px solid rgb(230, 17, 17){
-
-  } */
-
- .full-page {
- height: 100vh;
- width: 100%;
-} 
-
 .darkMode {
-=======
-  .darkMode {
->>>>>>> main
   background-color: black;
   color: white;
 }
@@ -31,7 +17,6 @@
   opacity: .5;
 }
 
-<<<<<<< HEAD
 .contact_form .form-control {
   padding: 1.375rem .75rem;
   line-height: 1.5;
@@ -39,14 +24,13 @@
   background-color:#0c0c0c;
   border-radius:0 !important;
   border: 1px solid #fff;
+}
 
-=======
 img {
   height: auto;
   width: 200px;
   border-radius: 20px; 
   padding: 3px;
->>>>>>> main
 }
 
 .contact_form input.form-control {
@@ -220,9 +204,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -405,14 +386,8 @@ code {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 350px 350px 350px;
 }
-/* 
+
 .allPkgs {
- text-align: center;
- margin: 5% 20%;
-}
- */
- 
- .allPkgs {
   display: flex;
   justify-content: center;
   align-items: flex-start;
