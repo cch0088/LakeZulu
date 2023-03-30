@@ -1,9 +1,4 @@
-.full-page {
- height: 100vh;
- width: 100%;
-}
-
-.darkMode {
+  .darkMode {
   background-color: black;
   color: white;
 }
@@ -25,6 +20,8 @@
 img {
   height: auto;
   width: 200px;
+  border-radius: 20px; 
+  padding: 3px;
 }
 
 body {
@@ -204,8 +201,10 @@ code {
 
 .eachBoat {
   border: 2px solid black;
+  border-radius: 40px;
   margin: 50px;
   text-align: center;
+  height: 270px;
 }
 
 #allBoats {
@@ -214,4 +213,9 @@ code {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 350px 350px 350px;
+}
+
+.allPkgs {
+ text-align: center;
+ margin: 5% 20%;
 }
