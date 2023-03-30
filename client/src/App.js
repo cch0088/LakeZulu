@@ -21,7 +21,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [schedule, setSchedule] = useState([]);
   const [pricing, setPricing] = useState([]);
-  const [stateDarkMode, setDarkMode] = useState(false);
   
   const login = "/check_login";
   const times = "/times";
@@ -46,9 +45,9 @@ function App() {
   }, []);
 
   return (
-    <div className={stateDarkMode ? 'darkMode' : null} style={{height: '100vh', width: '100%'}}>
+    <div style={{height: '100vh', width: '100%'}}>
       <Heading />
-      <NavBar setDarkMode={setDarkMode}/>
+      <NavBar/>
       <Switch>
 
         <Route exact path="/">
@@ -72,7 +71,7 @@ function App() {
         </Route>
 
         <Route exact path="/ContactPage" >
-           <ContactPage stateDarkMode={stateDarkMode}/>
+           <ContactPage/>
         </Route>
 
         <Route exact path="/SpecialPkgs">

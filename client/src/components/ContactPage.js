@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-function ContactPage({ stateDarkMode }) {
+function ContactPage() {
      
 return(
   <Container>
@@ -13,7 +13,7 @@ return(
      className= "mb-5 mt-3">
       <Col lg = '8'>
       <h1 className = "display-4 mb-4">
-          Conatct Us
+          Contact Us
       </h1>
       </Col>
   </Row>
