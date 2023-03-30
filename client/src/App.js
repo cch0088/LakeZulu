@@ -20,12 +20,14 @@ import './App.css';
 function App() {
   const [user, setUser] = useState(null);
   const [schedule, setSchedule] = useState([]);
-  const [stateDarkMode, setDarkMode] = useState(false)
+  const [pricing, setPricing] = useState([]);
+  const [stateDarkMode, setDarkMode] = useState(false);
   
   const login = "/check_login";
-  const API = "/times";
+  const times = "/times";
+  const prices = "/boatTime";
 
-  // check log in status
+  // check log in status then fetch schedule
   useEffect(() => {
     fetch(login).then(
       (resp) => {
@@ -34,8 +36,10 @@ function App() {
             (user) => {
               setUser(user)
             }
-          ).then(fetch(API).then(resp => resp.json())
-          .then(data => setSchedule(data)));
+          ).then(fetch(times).then(resp => resp.json())
+          .then(data => setSchedule(data)))
+          .then(fetch(prices).then(resp => resp.json())
+          .then(data => setPricing(data)));
         }
       }
     )
@@ -56,11 +60,11 @@ function App() {
         </Route>
 
         <Route exact path="/new_res">
-          {(user) ? <Reserve schedule={schedule} /> : <Login />}
+          {(user) ? <Reserve schedule={schedule} pricing={pricing} username={user} /> : <Login />}
         </Route>
 
         <Route exact path="/view_res">
-          {(user) ? <View schedule={schedule} /> : <Login />}
+          {(user) ? <View schedule={schedule} pricing={pricing} /> : <Login />}
         </Route>
 
         <Route exact path="/BoatsList">
@@ -77,7 +81,6 @@ function App() {
 
         <Route exact path="/Events">
           <Events />
-
         </Route>
 
       </Switch>
