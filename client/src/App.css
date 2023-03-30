@@ -5,11 +5,12 @@
 
 #darkMode {
   position: absolute;
-  top: 92px;
   border: 2px solid black;
-  border-radius: 5px;
+  background-color: white;
+  font-weight: bold;
   margin: 3px;
-  height: 65px;
+  height: 52px;
+  width: 130;
   cursor: pointer;
 }
 
@@ -26,12 +27,12 @@
   border: 1px solid #fff;
 }
 
-img {
-  height: auto;
-  width: 200px;
-  border-radius: 20px; 
-  padding: 3px;
-}
+  img {
+    height: 100px;
+    width: 100%;
+    border-radius: 20px; 
+    padding: 3px;
+  }
 
 .contact_form input.form-control {
   margin-bottom: 2em;
@@ -211,21 +212,18 @@ code {
 } 
 
 .navigation {
-  border-color: black;
-  border-width: 2px;
-  border-style: solid;
   border-radius: 10px;
   margin: 0 10px 10px;
   text-align: center;
 }
 
 .navigation > a {
-  border-color: black;
-  border-width: 2px;
-  border-style: solid;
+  border: 2px solid black;
   display: inline-block;
-  width: 100px;
+  height: 100%;
+  width: 130px;
   padding: 12px;
+  margin: 3px;
   text-decoration: none;
   color: black;
   text-align: center;
@@ -372,8 +370,8 @@ code {
 }
 
 .eachBoat {
-  border: 2px solid black;
-  border-radius: 40px;
+  /* border: 2px solid black;
+  border-radius: 40px; */
   margin: 50px;
   text-align: center;
   height: 270px;
