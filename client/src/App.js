@@ -12,6 +12,8 @@ import BoatsList from './components/BoatsList';
 import ContactPage from './components/ContactPage';
 import SpecialPkgs from './components/SpecialPkgs';
 import Events from './components/Events';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import './App.css';
 
