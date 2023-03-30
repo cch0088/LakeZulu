@@ -1,6 +1,10 @@
 import { React, useState } from "react";
 
 function Reserve({schedule, pricing}) {
+  const [boat, setBoat] = useState('');
+  const [capacity, setCapacity] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [resID, setResID] = useState(1);
   const [filterDay, setFilterDay] = useState('Monday');
   const [reservation, setReservation] = useState(0);
   const [step, setStep] = useState(0);
@@ -21,12 +25,19 @@ function Reserve({schedule, pricing}) {
 
   // de-construct the pricing object and reconstruct into price matrix array
   for (let record of pricing) {
-    price_matrix.push([record['boat_id'] + ":" + record['time_id'], record['price']]);
+    price_matrix.push([record['boat_id'] + ':' + record['time_id'], record['id'] + ':' + record['price']]);
   }
 
-  function getPrice(time_id, boat_id) {
-    let list_price = price_matrix.filter(([key, value]) => key === `${boat_id}:${time_id}`);
-    return list_price[0][1];
+  function getPrice(boat_id, time_id, get_id) {
+    const list_price = price_matrix.filter(([key, value]) => key === `${boat_id}:${time_id}`);
+    if (get_id === 1)
+    {
+      return list_price[0][1].split(':')[0]; // output the ID field in boat_times table
+    }
+    else
+    {
+      return list_price[0][1].split(':')[1]; // output the price field
+    }
   }
 
   function handleTimeSelection(e) {
@@ -34,8 +45,12 @@ function Reserve({schedule, pricing}) {
     setStep(1);
   }
 
-  function handleBoatSelection(e) {
-    setStep(0);
+  function handleBoatSelection(e, boat_id, time_id, boat_name, boat_capacity) {
+    setPrice(getPrice(boat_id, time_id, 0));
+    setResID(getPrice(boat_id, time_id, 1)); // get the corresponding ID in boat_times table
+    setBoat(properName(boat_name));
+    setCapacity(boat_capacity);
+    setStep(2);
   }
 
   function properName(name) {
@@ -76,7 +91,7 @@ function Reserve({schedule, pricing}) {
     {
       return (
       <div className="content">
-        <div>You are reserving {days[reservation]} from {times[reservation]}</div>
+        <div>You are reserving {days[reservation]} from {times[reservation]}...</div>
         <div>Here is a list of available boats at this time:</div>
         <div className="div-table">
           <div className="div-table-heading-title">
@@ -86,13 +101,23 @@ function Reserve({schedule, pricing}) {
           </div>
           {boats[reservation].map((boat, index) => {
           return (
-            <div className="div-table-heading" key={index} id={index} onClick={(e) => handleBoatSelection(e)}>
+            <div className="div-table-heading" key={index} id={index} onClick={(e) => handleBoatSelection(e, boat.id, time_id[reservation], boat.name, boat.capacity)}>
               <div id={index} className="div-table-cell">{properName(boat.name)}</div>
               <div id={index} className="div-table-cell">{boat.capacity}</div>
-              <div id={index} className="div-table-cell">${getPrice(time_id[reservation], boat.id)}</div>
+              <div id={index} className="div-table-cell">${getPrice(boat.id, time_id[reservation], 0)}</div>
             </div>)})}
         </div>
       </div>);
+    }
+    else if (step === 2)
+    {
+      return (
+        <div className="content">
+          <div>You are reserving {days[reservation]} from {times[reservation]}.</div>
+          <div>You picked a {boat} with capacity for {(capacity === 1) ? '1 person' : capacity + ' people'}.</div>
+          <div>Your cost will be ${price} per hour starting from departure.</div>
+          <div>Please check the box to sign the waiver below and click submit to store your reservation.</div>
+        </div>);
     }
 }
 export default Reserve;
