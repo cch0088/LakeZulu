@@ -1,6 +1,9 @@
 import { React, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Reserve({schedule, pricing, username}) {
+  const history = useHistory();
+  
   const [boat, setBoat] = useState('');
   const [capacity, setCapacity] = useState(0);
   const [price, setPrice] = useState(0);
@@ -71,7 +74,7 @@ function Reserve({schedule, pricing, username}) {
       body: JSON.stringify(patchData)
     };
 
-    fetch(API, API_OPT).then(resp => resp.json());
+    fetch(API, API_OPT).then(resp => resp.json()).then(history.push("/view_res"));
   }
 
   function properName(name) {
