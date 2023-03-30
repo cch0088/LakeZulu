@@ -8,6 +8,7 @@ function Reserve({schedule, pricing}) {
   const [filterDay, setFilterDay] = useState('Monday');
   const [reservation, setReservation] = useState(0);
   const [step, setStep] = useState(0);
+  const [formSigned, setFormSigned] = useState(0);
 
   // de-construct the schedule object into individual indexes for populating table
   let days = [];
@@ -53,6 +54,11 @@ function Reserve({schedule, pricing}) {
     setStep(2);
   }
 
+  function handleReservation(e, reservation_id) {
+    // run a fetch request to insert into boat_times table
+    console.log(reservation_id);
+  }
+
   function properName(name) {
     return name.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   }
@@ -66,7 +72,7 @@ function Reserve({schedule, pricing}) {
           <option value='Monday'>Monday</option>
           <option value='Tuesday'>Tuesday</option>
           <option value='Wednesday'>Wednesday</option>
-          <option value='Thursday'>Thursday</option>
+          <option value='Thursday'>Thursday</option>1
           <option value='Friday'>Friday</option>
           <option value='Saturday'>Saturday</option>
           <option value='Sunday'>Sunday</option>
@@ -117,6 +123,9 @@ function Reserve({schedule, pricing}) {
           <div>You picked a {boat} with capacity for {(capacity === 1) ? '1 person' : capacity + ' people'}.</div>
           <div>Your cost will be ${price} per hour starting from departure.</div>
           <div>Please check the box to sign the waiver below and click submit to store your reservation.</div>
+          <input type='checkbox' />I agree to all posted rules and waive my right to sue Lake Zulu for any damages.
+          <br /><br />
+          <input type='button' value='Confirm Reservation' onClick={(e) => handleReservation(e, resID)} />
         </div>);
     }
 }
