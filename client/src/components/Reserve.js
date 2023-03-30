@@ -20,17 +20,17 @@ function Reserve({schedule, pricing, username}) {
   let time_id = []; // used for price lookup
   let price_matrix = [];
 
+  // de-construct the pricing object and reconstruct into price matrix array
+  for (let record of pricing) {
+    price_matrix.push([record['boat_id'] + ':' + record['time_id'], 
+                        record['id'] + ':' + record['price']]);
+  }
+
   for (let record of schedule) {
     days.push(record['day']);
     times.push(record['hour']);
     boats.push(record['boats']);
     time_id.push(record['id']);
-  }
-
-  // de-construct the pricing object and reconstruct into price matrix array
-  for (let record of pricing) {
-    price_matrix.push([record['boat_id'] + ':' + record['time_id'], 
-    record['id'] + ':' + record['price'] + ':' + record['reserved']]);
   }
 
   function getPrice(boat_id, time_id, get_id) {
@@ -74,7 +74,7 @@ function Reserve({schedule, pricing, username}) {
       body: JSON.stringify(patchData)
     };
 
-    fetch(API, API_OPT).then(resp => resp.json()).then(history.push("/view_res"));
+    fetch(API, API_OPT).then(resp => resp.json()).then(history.push("/create_res"));
   }
 
   function properName(name) {
