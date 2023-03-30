@@ -214,8 +214,58 @@ code {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 350px 350px 350px;
 }
-
+/* 
 .allPkgs {
  text-align: center;
  margin: 5% 20%;
+}
+ */
+ 
+ .allPkgs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.pkgHeading {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.pkgBody {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .pkgBody {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .allPkgs {
+    gap: 4rem;
+  }
+
+  .pkgHeading {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .pkgBody {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    padding: 3rem;
+  }
 }
