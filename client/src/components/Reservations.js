@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 function Reservations({user}) {
-    return (
+  return (
         <div className="content">
             Welcome back {user.username}!
             <ReserveButton />
