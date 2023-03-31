@@ -97,4 +97,3 @@ class BoatTime(db.Model):
           "price": self.price,
           "reserved": self.reserved
        }
-   

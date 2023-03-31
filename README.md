@@ -1,17 +1,11 @@
-# LakeZulu
-Lake Zulu Boat Rentals (Phase 4 Project)
+# Welcome to Lake Zulu Boat Rentals!
 
-6 types of boats- speed boat, catamaran, fishing boat, dingy, swan peedle boat, kayak, jet ski
-time frame changes based on prices
-packages deals to includes drinks, snacks, music, life jackets are including in the rental.
-rental rates based on size, time frame, and amount of people
-Calendar to check availability
-Open Hours- 6AM-10AM and 1PM-7PM
-FrontEnd will include the amount of people, that will display the correct boat for that size
-Reservation system that allows the customer to choose the amount of people, the time frame, consent form.
-Include boat reviews to the website
+On this project you can create an account and log in, then go on to rent a boat of your choice!
 
+Your password will be encrypted and safely stored.
 
+There are many options you will choose from, one of whish will definitely fit your needs!
 
-Main Component will be the logo for the business and a picture to grab the users attention
-Other components will include, the hyper-links to the everything
+Once you rent a boat, it will onlt be visible to the user that created said rental.
+
+There are special events and group packeges, be sure to keeo an eye out for you!
