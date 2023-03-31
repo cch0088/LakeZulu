@@ -64,13 +64,15 @@ function View({schedule, pricing, username}) {
               return null;
             }})
           return (
-          <div className="div-table-heading" key={index} id={index}>
-            <div id={index} className="div-table-cell">{arr.map(a => (a === null) ? null : a[3])}</div>
-            <div id={index} className="div-table-cell">{arr.map(a => (a === null) ? null : a[2])}</div>
-            <div id={index} className="div-table-cell">{arr.map(a => (a === null) ? null : a[0])}</div>
-            <div id={index} className="div-table-cell">{arr.map(a => (a === null) ? null : a[1])}</div>
-            <div id={index} className="div-table-cell">{arr.map(a => (a === null) ? null : '$' + a[4])}</div>
-          </div>);
+            arr.map(a => (a === null) ? null : (
+            <div className="div-table-heading" key={index} id={index}>
+              <div id={index} className="div-table-cell">{a[3]}</div>
+              <div id={index} className="div-table-cell">{a[2]}</div>
+              <div id={index} className="div-table-cell">{a[0]}</div>
+              <div id={index} className="div-table-cell">{a[1]}</div>
+              <div id={index} className="div-table-cell">${a[4]}</div>
+            </div>))
+          );
         })}
       </div>
     </div>);
