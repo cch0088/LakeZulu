@@ -35,7 +35,7 @@ function App() {
             (user) => {
               setUser(user)
             }
-          ).then(fetch(times).then(resp => resp.json())
+         ).then(fetch(times).then(resp => resp.json())
           .then(data => setSchedule(data)))
           .then(fetch(prices).then(resp => resp.json())
           .then(data => setPricing(data)));
